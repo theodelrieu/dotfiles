@@ -27,6 +27,7 @@ Plug 'vim-stay'                 " Open a previously closed file where you left i
 " Colors
 Plug 'nanotech/jellybeans.vim'
 Plug 'luochen1990/rainbow'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Completion
 Plug 'Valloric/YouCompleteMe', {'for' : ['cpp', 'c'], 'do' : './install.py --clang-completer'}
