@@ -1,0 +1,210 @@
+### [b] = must be the first word on line
+### [i] = expand snippet regardless of preceding characters
+
+## Main
+# main
+snippet main "standard main" [b]
+int main(int argc, char const *argv[])
+{
+  ${0}
+}
+endsnippet
+
+## Preprocessor
+# include system
+snippet inc "system include" [b]
+#include <${1}>
+endsnippet
+
+# include local
+snippet inc2 "local include" [b]
+#include "${1}"
+endsnippet
+
+## STL
+# begin/end
+snippet beginend "$1.begin(), $1.end() (beginend)" [i]
+${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
+endsnippet
+# std::array
+snippet array "std::array" [i]
+std::array<${1:T}, ${2:N}> ${3}
+endsnippet
+# std::vector
+snippet vector "std::vector" [i]
+std::vector<${1:T}> ${2}
+endsnippet
+# std::pair
+snippet pair "std::pair" [i]
+std::pair<${1:T}, ${2:U}> ${3}
+endsnippet
+# std::string
+snippet string "std::string" [i]
+std::string 
+endsnippet
+# std::deque
+snippet deque "std::deque" [i]
+std::deque<${1:T}> ${2}
+endsnippet
+# std::forward_list
+snippet flist "std::forward_list" [i]
+std::forward_list<${1:T}> ${2}
+endsnippet
+# std::list
+snippet list "std::list" [i]
+std::list<${1:T}> ${2}
+endsnippet
+# std::set
+snippet set "std::set" [i]
+std::set<${1:T}> ${2}
+endsnippet
+# std::map
+snippet map "std::map" [i]
+std::map<${1:Key}, ${2:T}> ${3}
+endsnippet
+# std::multiset
+snippet mset "std::multiset" [i]
+std::multiset<${1:T}> ${2}
+endsnippet
+# std::multimap
+snippet mmap "std::multimap" [i]
+std::multimap<${1:Key}, ${2:T}> ${3}
+endsnippet
+# std::unordered_set
+snippet uset "std::unordered_set" [i]
+std::unordered_set<${1:T}> ${2}
+endsnippet
+# std::unordered_map
+snippet umap "std::unordered_map" [i]
+std::unordered_map<${1:Key}, ${2:T}> ${3}
+endsnippet
+# std::unordered_multiset
+snippet umset "std::unordered_multiset" [i]
+std::unordered_multiset<${1:T}> ${2};
+endsnippet
+# std::unordered_multimap
+snippet ummap "std::unordered_multimap" [i]
+std::unordered_multimap<${1:Key}, ${2:T}> ${3}
+endsnippet
+# std::stack
+snippet stack "std::stack" [i]
+std::stack<${1:T}> ${2}
+endsnippet
+# std::queue
+snippet queue "std::queue" [i]
+std::queue<${1:T}> ${2}
+endsnippet
+# std::priority_queue
+snippet pqueue "std::priority_queue" [i]
+std::priority_queue<${1:T}> ${2}
+endsnippet
+##
+## Access Modifiers
+# private
+snippet pri "private access" [b]
+private:
+  
+endsnippet
+# protected
+snippet pro "protected access" [b]
+protected:
+  
+endsnippet
+# public
+snippet pub "public access" [b]
+public:
+  
+endsnippet
+## Class
+# class
+snippet cl "C++ class" [b]
+class ${1}
+{
+  public:
+    ${2}
+  private:
+    ${0:/* data */}
+};
+endsnippet
+
+#member function implementation
+snippet mfun "member function implementation" [b]
+${1:void} ${2:`!p snip.rv = snip.basename`}::${3:memberFunction}(${4})
+{
+  ${0}
+}
+endsnippet
+
+# namespace
+snippet ns "namespace" [b]
+namespace ${1}
+{
+  ${0}
+}
+endsnippet
+##
+## Input/Output
+# std::cout
+snippet cout "standard print sequence" [i]
+std::cout << ${1} << std::endl;
+endsnippet
+# std::cerr
+snippet cerr "error print sequence" [i]
+std::cerr << ${1} << std::endl;
+endsnippet
+# std::cin
+snippet cin "std::cin" [i]
+std::cin >> ${1};
+endsnippet
+##
+## Iteration
+# for i
+snippet fori "c for loop" [b]
+for (${1:int} ${2:i} = 0; $2 < ${1:count}; $2${3:++})
+{
+  ${4}
+}
+endsnippet
+
+# foreach
+snippet fore "ranged-base for loop" [b]
+for (auto const &${1:elem} : ${2:container})
+{
+  ${3}
+}
+endsnippet
+
+# auto iterator
+snippet itera "C++11 iterator loop" [b]
+for (auto ${1:it} = ${2:container}.begin(); $1 != $2.end(); ++$1)
+{
+  ${0}
+}
+endsnippet
+##
+## Lambdas
+# lamda (one line)
+snippet ld "lambda" [i]
+[${1}](${2}){${3}}
+endsnippet
+# lambda (multi-line)
+snippet ld2 "multi-line lambda" [i]
+[${1}](${2})
+{
+  ${3}
+}
+endsnippet
+
+## Templates
+# template
+
+snippet tpl "Template" [i]
+template <typename ${1:T}>
+endsnippet
+
+## Doxygen
+# brief multiline comment
+
+snippet dox "Multiline comment" [b]
+/** \brief ${1} */
+endsnippet
