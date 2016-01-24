@@ -276,6 +276,12 @@ vnoremap <leader>x :ClangFormat<CR>
 
 """ }}}
 
+""" vim-cpp-enhanced-highlight --------------------------------------------- {{{
+
+let g:cpp_class_scope_highlight = 1
+
+""" }}}
+
 """ YouCompleteMe ---------------------------------------------------------- {{{
 
 nnoremap <leader>d :YcmCompleter GoTo<CR>
