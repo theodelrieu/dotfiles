@@ -30,7 +30,7 @@ Plug 'luochen1990/rainbow'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Completion
-Plug 'Valloric/YouCompleteMe', {'for' : ['cpp', 'c'], 'do' : './install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe', {'do' : './install.py --clang-completer'}
 Plug 'Valloric/ListToggle'
 Plug 'rdnetto/YCM-Generator', {'branch' : 'stable'}
 Plug 'ervandew/supertab'
@@ -284,6 +284,9 @@ nnoremap <leader>t :YcmCompleter GetType<CR>
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_always_populate_location_list = 1
+let g:ycm_extra_conf_globlist = ['~/*']
+" basic config
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
 
 """ }}}
 
