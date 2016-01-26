@@ -55,6 +55,7 @@ filetype indent plugin on
 
 let mapleader = ","
 
+set clipboard=unnamed
 set completeopt-=preview    " Hide scratch buffer on completion
 set cursorline              " Highlight current line
 set foldmethod=syntax
@@ -141,6 +142,17 @@ endfunction
 nnoremap ; :
 vnoremap ; :
 
+" Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+
+" Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
 
 " Calls ToggleWidthHighlight
 nnoremap <leader>w :call ToggleWidthHighlight()<CR>
@@ -160,9 +172,6 @@ nnoremap / /\v
 vnoremap / /\v
 nnoremap ? ?\v
 vnoremap ? ?\v
-
-" Set paste.
-nnoremap <leader>p :set paste!<CR>
 
 " Tabs
 nnoremap T :tabnew<cr>
