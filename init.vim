@@ -39,9 +39,6 @@ Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 
-" Format
-Plug 'rhysd/vim-clang-format'
-
 " }}}
 
 call plug#end()
@@ -181,12 +178,17 @@ nnoremap <Space> za
 " TComment
 map <Leader>c <C-_><C-_>
 
+" Clang-format
+
+noremap <leader>x :pyf ~/.config/nvim/clang-format.py<CR>
+
 " }}}
 
 " Plugin configuration ----------------------------------------------------- {{{
 
 """ ConqueGdb -------------------------------------------------------------- {{{
 
+" avoid conflict with mapleader
 let g:ConqueGdb_Leader = '\'
 
 """ }}}
@@ -203,7 +205,6 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 """ FastFold --------------------------------------------------------------- {{{
 
 let g:fastfold_savehook = 0
-
 
 """ }}}
 
@@ -270,13 +271,6 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 
 """ }}}
 
-""" vim-clang-format ------------------------------------------------------- {{{
-
-let g:clang_format#detect_style_file = 1
-nnoremap <leader>x :ClangFormat<CR>
-vnoremap <leader>x :ClangFormat<CR>
-
-""" }}}
 
 """ vim-cpp-enhanced-highlight --------------------------------------------- {{{
 
