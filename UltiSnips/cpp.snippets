@@ -139,7 +139,7 @@ endsnippet
 snippet ns "namespace" [b]
 namespace ${1}
 {
-  ${0}
+${0}
 }
 endsnippet
 ##
@@ -168,7 +168,7 @@ endsnippet
 
 # foreach
 snippet fore "ranged-base for loop" [b]
-for (auto const &${1:elem} : ${2:container})
+for (auto const& ${1:elem} : ${2:container})
 {
   ${3}
 }
