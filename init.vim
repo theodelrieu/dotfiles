@@ -144,6 +144,10 @@ vnoremap  <leader>y  "+y
 nnoremap  <leader>Y  "+yg_
 nnoremap  <leader>y  "+y
 
+" Buffer switching
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprevious<CR>
+
 " Calls ToggleWidthHighlight
 nnoremap <leader>w :call ToggleWidthHighlight()<CR>
 
@@ -186,6 +190,13 @@ noremap <leader>x :pyf ~/.config/nvim/clang-format.py<CR>
 
 " Plugin configuration ----------------------------------------------------- {{{
 
+""" a.vim ------------------------------------------------------------------ {{{
+
+" TODO make this work with Tanker dirs
+let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc'
+
+""" }}}
+
 """ ConqueGdb -------------------------------------------------------------- {{{
 
 " avoid conflict with mapleader
@@ -198,13 +209,16 @@ let g:ConqueGdb_Leader = '\'
 let g:ctrlp_working_path_mode = 'ra'
 " Ignore files in .gitignore
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_mruf_relative = 1
+let g:ctrlp_clear_cache_on_exit = 0
 
 """ }}}
 
 """ FastFold --------------------------------------------------------------- {{{
 
-let g:fastfold_savehook = 0
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes = []
 
 """ }}}
 
@@ -280,7 +294,9 @@ let g:cpp_class_scope_highlight = 1
 
 """ YouCompleteMe ---------------------------------------------------------- {{{
 
-nnoremap <leader>d :YcmCompleter GoTo<CR>
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>f :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>i :YcmCompleter GoToInclude<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
 
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
