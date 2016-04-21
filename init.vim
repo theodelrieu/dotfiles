@@ -291,12 +291,11 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 let g:cpp_class_scope_highlight = 1
 
 """ }}}
-
 """ YouCompleteMe ---------------------------------------------------------- {{{
 
 nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>f :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>i :YcmCompleter GoToInclude<CR>
+nnoremap <leader>e :YcmCompleter GoToInclude<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
 
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
