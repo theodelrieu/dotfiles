@@ -1,0 +1,5 @@
+autoload
+tmp
+plugged
+.ycm_extra_conf.pyc
+.netrwhist
