@@ -4,6 +4,9 @@
 
 " Plugins ------------------------------------------------------------------ {{{
 
+filetype plugin indent on
+syntax on
+
 call plug#begin('~/.nvim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim'
@@ -43,9 +46,6 @@ Plug 'ryanoasis/vim-devicons'
 " }}}
 
 call plug#end()
-
-syntax on
-filetype indent plugin on
 
 " Options ------------------------------------------------------------------ {{{
 
@@ -176,6 +176,9 @@ nnoremap L :tabnext<cr>
 " Convenience
 command! W w
 command! Q q
+
+" Exit insert mode
+inoremap jk <ESC>
 
 " Folds
 nnoremap <Space> za
