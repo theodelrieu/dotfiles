@@ -29,6 +29,7 @@ Plug 'vim-stay'                 " Open a previously closed file where you left i
 
 " Colors
 Plug 'nanotech/jellybeans.vim'
+Plug 'w0ng/vim-hybrid'
 Plug 'luochen1990/rainbow'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
@@ -63,6 +64,7 @@ set relativenumber
 set scrolloff=999           " Keep the cursor centered
 set showbreak=↪             " Show line wrapping character
 
+set background=dark
 colorscheme jellybeans
 
 """ }}}
@@ -232,6 +234,13 @@ nnoremap <F5> :GundoToggle<CR>
 
 """ }}}
 
+""" Hybrid ------------------------------------------------------------------ {{{
+
+let g:hybrid_custom_term_colors = 1
+
+""" }}}
+
+
 """ ListToggle ------------------------------------------------------------- {{{
 
 let g:lt_location_list_toggle_map = '<leader>l'
@@ -263,7 +272,7 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 
 """ UltiSnips -------------------------------------------------------------- {{{
 
-let g:UltiSnipsSnippetDirectories = [$HOME.'/.nvim/UltiSnips/']
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips/']
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
@@ -288,7 +297,6 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
 """ }}}
-
 
 """ vim-cpp-enhanced-highlight --------------------------------------------- {{{
 
