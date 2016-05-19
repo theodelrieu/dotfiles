@@ -26,6 +26,14 @@ endsnippet
 snippet beginend "$1.begin(), $1.end() (beginend)" [i]
 ${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
 endsnippet
+# boost::optional
+snippet opt "boost::optional" [i]
+boost::optional<${1:T}> ${2}
+endsnippet
+# std::tuple
+snippet tuple "std::tuple" [i]
+std::tuple<${1:T}> ${2}
+endsnippet
 # std::array
 snippet array "std::array" [i]
 std::array<${1:T}, ${2:N}> ${3}
@@ -158,13 +166,6 @@ std::cin >> ${1};
 endsnippet
 ##
 ## Iteration
-# for i
-snippet fori "c for loop" [b]
-for (${1:int} ${2:i} = 0; $2 < ${1:count}; $2${3:++})
-{
-  ${4}
-}
-endsnippet
 
 # foreach
 snippet fore "ranged-base for loop" [b]
@@ -187,19 +188,30 @@ endsnippet
 snippet ld "lambda" [i]
 [${1}](${2}){${3}}
 endsnippet
-# lambda (multi-line)
-snippet ld2 "multi-line lambda" [i]
-[${1}](${2})
-{
-  ${3}
-}
-endsnippet
 
 ## Templates
 # template
 
 snippet tpl "Template" [i]
 template <typename ${1:T}>
+endsnippet
+
+# template template
+
+snippet ttpl "Template Template" [i]
+template <template <typename ${1:T}>>
+endsnippet
+
+## Asserts
+
+# static_assert
+snippet sta "Static Assert" [b]
+static_assert(${1}, "${2}");
+endsnippet
+
+# static_assert std::is_same
+snippet stas "Static Assert is_same" [b]
+static_assert(std::is_same<${1}, ${2}>::value, "${3}");
 endsnippet
 
 ## Doxygen
