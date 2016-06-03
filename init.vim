@@ -14,6 +14,9 @@ Plug 'sjl/gundo.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tomtom/tcomment_vim'
 Plug 'Konfekt/FastFold'
+Plug 'wellle/targets.vim'
+" Plug 'bkad/CamelCaseMotion'
+Plug 'derekwyatt/vim-fswitch'
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -23,7 +26,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 " vim-scripts
-Plug 'a.vim'
 Plug 'Conque-GDB'
 Plug 'vim-stay'                 " Open a previously closed file where you left it
 
@@ -196,10 +198,16 @@ noremap <leader>x :pyf ~/.config/nvim/clang-format.py<CR>
 
 " Plugin configuration ----------------------------------------------------- {{{
 
-""" a.vim ------------------------------------------------------------------ {{{
+""" CamelCaseMotion -------------------------------------------------------- {{{
 
-" TODO make this work with Tanker dirs
-let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc'
+" map <silent> w <Plug>CamelCaseMotion_w
+" map <silent> b <Plug>CamelCaseMotion_b
+" map <silent> e <Plug>CamelCaseMotion_e
+" map <silent> ge <Plug>CamelCaseMotion_ge
+" sunmap w
+" sunmap b
+" sunmap e
+" sunmap ge
 
 """ }}}
 
@@ -303,6 +311,22 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 let g:cpp_class_scope_highlight = 1
 
 """ }}}
+
+""" vim-fswitch --------------------------------------------- {{{
+
+let g:fsnonewfiles = 1
+augroup my_fswitch_au_group
+    au!
+    au BufEnter *.h   let b:fswitchlocs = 'reg:|include/[^/]\+|src|,reg:/include/src/,reg:/include.*/src/,ifrel:|/include/|../src|'
+    au BufEnter *.hh  let b:fswitchlocs = 'reg:|include/[^/]\+|src|,reg:/include/src/,reg:/include.*/src/,ifrel:|/include/|../src|'
+    au BufEnter *.hpp let b:fswitchlocs = 'reg:|include/[^/]\+|src|,reg:/include/src/,reg:/include.*/src/,ifrel:|/include/|../src|'
+    au BufEnter *.hxx let b:fswitchlocs = 'reg:|include/[^/]\+|src|,reg:/include/src/,reg:/include.*/src/,ifrel:|/include/|../src|'
+    au BufEnter *.H   let b:fswitchlocs = 'reg:|include/[^/]\+|src|,reg:/include/src/,reg:/include.*/src/,ifrel:|/include/|../src|'
+augroup END
+command A FSHere 
+
+""" }}}
+
 """ YouCompleteMe ---------------------------------------------------------- {{{
 
 nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
