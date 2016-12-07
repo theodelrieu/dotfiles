@@ -316,6 +316,7 @@ let g:cpp_class_scope_highlight = 1
 """ vim-go --------------------------------------------- {{{
 
 let g:go_fmt_command = "goimports"
+let g:go_fmt_experimental = 1
 
 """ }}}
 
