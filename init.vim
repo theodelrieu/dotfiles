@@ -14,9 +14,10 @@ Plug 'sjl/gundo.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tomtom/tcomment_vim'
 Plug 'Konfekt/FastFold'
-Plug 'wellle/targets.vim'
-" Plug 'bkad/CamelCaseMotion'
 Plug 'derekwyatt/vim-fswitch'
+
+" Go
+Plug 'fatih/vim-go'
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -231,7 +232,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 
 """ FastFold --------------------------------------------------------------- {{{
 
-let g:fastfold_savehook = 1
+let g:fastfold_savehook = 0
 let g:fastfold_fold_command_suffixes = []
 
 """ }}}
@@ -309,6 +310,12 @@ nmap <leader>9 <Plug>AirlineSelectTab9
 """ vim-cpp-enhanced-highlight --------------------------------------------- {{{
 
 let g:cpp_class_scope_highlight = 1
+
+""" }}}
+
+""" vim-go --------------------------------------------- {{{
+
+let g:go_fmt_command = "goimports"
 
 """ }}}
 
