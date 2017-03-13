@@ -57,6 +57,7 @@ call plug#end()
 
 let mapleader = ","
 
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set clipboard=unnamed
 set completeopt-=preview    " Hide scratch buffer on completion
 set cursorline              " Highlight current line
@@ -68,6 +69,7 @@ set scrolloff=999           " Keep the cursor centered
 set showbreak=↪             " Show line wrapping character
 
 set background=dark
+set mps+=<:>
 colorscheme jellybeans
 
 """ }}}
@@ -191,9 +193,13 @@ nnoremap <Space> za
 " TComment
 map <Leader>c <C-_><C-_>
 
-" Clang-format
+" clang-format
 
 noremap <leader>x :pyf ~/.config/nvim/clang-format.py<CR>
+
+" Tanker stuff
+
+command Tlogs :%!~/Tanker/build/Desktop/Tools/tlogs -
 
 " }}}
 
@@ -232,7 +238,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 
 """ FastFold --------------------------------------------------------------- {{{
 
-let g:fastfold_savehook = 0
+let g:fastfold_savehook = 1
 let g:fastfold_fold_command_suffixes = []
 
 """ }}}
@@ -341,13 +347,14 @@ nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>f :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>e :YcmCompleter GoToInclude<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
+nnoremap <leader>i :YcmCompleter FixIt<CR>
 
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_always_populate_location_list = 1
 let g:ycm_extra_conf_globlist = ['~/*']
 " basic config
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/home/theo/Tanker/.ycm_extra_conf.py'
 
 """ }}}
 

@@ -196,10 +196,14 @@ snippet tpl "Template" [i]
 template <typename ${1:T}>
 endsnippet
 
+snippet tpn "Typename" [i]
+typename ${1:T}
+endsnippet
+
 # template template
 
 snippet tppl "Template Template" [i]
-template <template <typename ${1:T}>>
+template <template <typename ${1:T}> class ${2:U}>
 endsnippet
 
 ## Asserts
