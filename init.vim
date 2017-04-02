@@ -354,7 +354,7 @@ let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_always_populate_location_list = 1
 let g:ycm_extra_conf_globlist = ['~/*']
 " basic config
-let g:ycm_global_ycm_extra_conf = '/home/theo/Tanker/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '${HOME}/.config/nvim/.ycm_extra_conf.py'
 
 """ }}}
 
