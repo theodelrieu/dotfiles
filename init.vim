@@ -7,56 +7,59 @@
 filetype plugin indent on
 syntax on
 
-call plug#begin('~/.nvim/plugged')
+set packpath^=~/.nvim
+packadd minpac
 
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'sjl/gundo.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'tomtom/tcomment_vim'
-Plug 'Konfekt/FastFold'
-Plug 'derekwyatt/vim-fswitch'
-Plug 'danro/rename.vim'
+call minpac#init()
+
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+
+call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('sjl/gundo.vim')
+call minpac#add('airblade/vim-gitgutter')
+call minpac#add('tomtom/tcomment_vim')
+call minpac#add('Konfekt/FastFold')
+call minpac#add('derekwyatt/vim-fswitch')
+call minpac#add('danro/rename.vim')
 
 " Go
-Plug 'fatih/vim-go'
+call minpac#add('fatih/vim-go')
 
 " Javascript
-Plug 'pangloss/vim-javascript'
+call minpac#add('pangloss/vim-javascript')
 
 " Snippets
-Plug 'SirVer/ultisnips'
+call minpac#add('SirVer/ultisnips')
 
 " tpope
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-surround')
 
 " vim-scripts
-Plug 'Conque-GDB'
-Plug 'vim-stay'                 " Open a previously closed file where you left it
+call minpac#add('vim-scripts/vim-stay')                 " Open a previously closed file where you left it
 
 " Colors
-Plug 'nanotech/jellybeans.vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'luochen1990/rainbow'
-Plug 'octol/vim-cpp-enhanced-highlight'
+call minpac#add('nanotech/jellybeans.vim')
+call minpac#add('w0ng/vim-hybrid')
+call minpac#add('luochen1990/rainbow')
+call minpac#add('octol/vim-cpp-enhanced-highlight')
 
-" Completion
-Plug 'Valloric/YouCompleteMe', {'do' : './install.py --clang-completer'}
-Plug 'Valloric/ListToggle'
-Plug 'rdnetto/YCM-Generator', {'branch' : 'stable'}
-Plug 'ervandew/supertab'
+" Completion (post-update hook with YCM is broken)
+call minpac#add('Valloric/YouCompleteMe')
+call minpac#add('Valloric/ListToggle')
+call minpac#add('ervandew/supertab')
 
 " JS lint
-Plug 'vim-syntastic/syntastic'
+call minpac#add('vim-syntastic/syntastic')
 
 " Cosmetics
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('ryanoasis/vim-devicons')
 
 " }}}
 
-call plug#end()
+packloadall
 
 " Options ------------------------------------------------------------------ {{{
 
