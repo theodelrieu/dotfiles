@@ -6,7 +6,7 @@
 snippet main "standard main" [b]
 int main(int argc, char const *argv[])
 {
-  ${0}
+  ${1}
 }
 endsnippet
 
@@ -19,6 +19,16 @@ endsnippet
 # include local
 snippet inc2 "local include" [b]
 #include "${1}"
+endsnippet
+
+## Casts
+# static_cast
+snippet stc "static_cast" [i]
+static_cast<${1}>(${2})
+endsnippet
+
+snippet rtc "reinterpret_cast" [i]
+reinterpret_cast<${1:char const*}>(${2})
 endsnippet
 
 ## STL
@@ -131,15 +141,28 @@ class ${1}
   public:
     ${2}
   private:
-    ${0:/* data */}
+    ${3:/* data */}
 };
 endsnippet
 
 #member function implementation
 snippet mfun "member function implementation" [b]
-${1:void} ${2:`!p snip.rv = snip.basename`}::${3:memberFunction}(${4})
+${1:void} ${2:`!p snip.rv = snip.basename`}::${3:memberFunction}(${4}) ${5}
 {
-  ${0}
+  ${6}
+}
+endsnippet
+
+# equality operators
+snippet opequ "operator==/!=" [b]
+bool operator==(${1} const& lhs, $1 const& rhs) noexcept
+{
+	return std::tie(${2}) == std::tie(${2/lhs/rhs/g});
+}
+
+bool operator!=($1 const& lhs, $1 const& rhs) noexcept
+{
+	return !(lhs == rhs);
 }
 endsnippet
 
@@ -147,9 +170,15 @@ endsnippet
 snippet ns "namespace" [b]
 namespace ${1}
 {
-${0}
+${2}
 }
 endsnippet
+
+# using namespace
+snippet uns "using namespace" [b]
+using namespace ${1};
+endsnippet
+
 ##
 ## Input/Output
 # std::cout
@@ -179,7 +208,7 @@ endsnippet
 snippet itera "C++11 iterator loop" [b]
 for (auto ${1:it} = ${2:container}.begin(); $1 != $2.end(); ++$1)
 {
-  ${0}
+  ${3}
 }
 endsnippet
 ##

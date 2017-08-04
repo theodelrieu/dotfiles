@@ -15,9 +15,13 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tomtom/tcomment_vim'
 Plug 'Konfekt/FastFold'
 Plug 'derekwyatt/vim-fswitch'
+Plug 'danro/rename.vim'
 
 " Go
 Plug 'fatih/vim-go'
+
+" Javascript
+Plug 'pangloss/vim-javascript'
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -41,6 +45,9 @@ Plug 'Valloric/YouCompleteMe', {'do' : './install.py --clang-completer'}
 Plug 'Valloric/ListToggle'
 Plug 'rdnetto/YCM-Generator', {'branch' : 'stable'}
 Plug 'ervandew/supertab'
+
+" JS lint
+Plug 'vim-syntastic/syntastic'
 
 " Cosmetics
 Plug 'vim-airline/vim-airline'
@@ -339,6 +346,19 @@ augroup my_fswitch_au_group
 augroup END
 command A FSHere 
 
+""" }}}
+
+""" vim-javascript --------------------------------------------- {{{
+let g:javascript_plugin_flow = 1
+""" }}}
+
+""" 
+
+""" syntastic --------------------------------------------- {{{
+let g:syntastic_javascript_checkers = ['eslint', 'flow']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
 """ }}}
 
 """ YouCompleteMe ---------------------------------------------------------- {{{
