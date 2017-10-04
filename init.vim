@@ -10,17 +10,20 @@ syntax on
 set packpath^=~/.nvim
 packadd minpac
 
+set runtimepath+=~/.fzf
+
 call minpac#init()
 
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('sjl/gundo.vim')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('tomtom/tcomment_vim')
 call minpac#add('Konfekt/FastFold')
 call minpac#add('derekwyatt/vim-fswitch')
 call minpac#add('danro/rename.vim')
+call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': '!./install --all'})
+call minpac#add('junegunn/fzf.vim')
 
 " Go
 call minpac#add('fatih/vim-go')
@@ -44,13 +47,10 @@ call minpac#add('w0ng/vim-hybrid')
 call minpac#add('luochen1990/rainbow')
 call minpac#add('octol/vim-cpp-enhanced-highlight')
 
-" Completion (post-update hook with YCM is broken)
-call minpac#add('Valloric/YouCompleteMe')
+" Completion
+call minpac#add('Valloric/YouCompleteMe', {'do': '!./install.py --clang-completer'})
 call minpac#add('Valloric/ListToggle')
 call minpac#add('ervandew/supertab')
-
-" JS lint
-call minpac#add('vim-syntastic/syntastic')
 
 " Cosmetics
 call minpac#add('vim-airline/vim-airline')
@@ -162,6 +162,10 @@ vnoremap  <leader>y  "+y
 nnoremap  <leader>Y  "+yg_
 nnoremap  <leader>y  "+y
 
+" ListToggle
+nnoremap  <silent> <leader>q  :QToggle<CR>
+nnoremap  <silent> <leader>l  :LToggle<CR>
+
 " Buffer switching
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprevious<CR>
@@ -207,26 +211,9 @@ map <Leader>c <C-_><C-_>
 
 noremap <leader>x :pyf ~/.config/nvim/clang-format.py<CR>
 
-" Tanker stuff
-
-command Tlogs :%!~/Tanker/build/Desktop/Tools/tlogs -
-
 " }}}
 
 " Plugin configuration ----------------------------------------------------- {{{
-
-""" CamelCaseMotion -------------------------------------------------------- {{{
-
-" map <silent> w <Plug>CamelCaseMotion_w
-" map <silent> b <Plug>CamelCaseMotion_b
-" map <silent> e <Plug>CamelCaseMotion_e
-" map <silent> ge <Plug>CamelCaseMotion_ge
-" sunmap w
-" sunmap b
-" sunmap e
-" sunmap ge
-
-""" }}}
 
 """ ConqueGdb -------------------------------------------------------------- {{{
 
@@ -265,19 +252,11 @@ let g:hybrid_custom_term_colors = 1
 
 """ }}}
 
-
-""" ListToggle ------------------------------------------------------------- {{{
-
-let g:lt_location_list_toggle_map = '<leader>l'
-let g:lt_quickfix_list_toggle_map = '<leader>q'
-
-""" }}}
-
 """ rainbow ---------------------------------------------------------------- {{{
 
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-                      \'parentheses': 
+                      \'parentheses':
                           \['start=/(/ end=/)/',
                            \'start=/\[/ end=/\]/',
                            \'start=/{/ end=/}/ fold'],
@@ -347,7 +326,7 @@ augroup my_fswitch_au_group
     au BufEnter *.hxx let b:fswitchlocs = 'reg:|include/[^/]\+|src|,reg:/include/src/,reg:/include.*/src/,ifrel:|/include/|../src|'
     au BufEnter *.H   let b:fswitchlocs = 'reg:|include/[^/]\+|src|,reg:/include/src/,reg:/include.*/src/,ifrel:|/include/|../src|'
 augroup END
-command A FSHere 
+command A FSHere
 
 """ }}}
 
@@ -355,14 +334,6 @@ command A FSHere
 let g:javascript_plugin_flow = 1
 """ }}}
 
-""" 
-
-""" syntastic --------------------------------------------- {{{
-let g:syntastic_javascript_checkers = ['eslint', 'flow']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-""" }}}
 
 """ YouCompleteMe ---------------------------------------------------------- {{{
 
