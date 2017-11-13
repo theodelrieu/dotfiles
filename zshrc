@@ -1,11 +1,11 @@
-# If you come from bash you might have to change your $PATH.
+#if you come from bash you might have to change your $PATH.
 export GOPATH=$HOME/Tanker/go/
-export PATH=$HOME/.npm-packages/bin:$HOME/.local/bin:$GOPATH/bin:/opt/swift/usr/bin:$PATH
+export PATH=$HOME/.npm-packages/bin:$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$PATH
 
 export CONAN_CMAKE_GENERATOR=Ninja
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/theo/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -56,13 +56,9 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-alias vim='nvim'
 export EDITOR='vim'
 
+POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
@@ -70,13 +66,9 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs status os_icon time)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 
-# export MANPATH="/usr/local/man:$MANPATH"
+source $ZSH/oh-my-zsh.sh
 
-# colorize ninja output
-function nbc() {
-  ninja $@ | colout -t cmake | colout -t g++
-  return ${pipestatus[1]}
-}
+# User configuration
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -103,5 +95,5 @@ function nbc() {
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
