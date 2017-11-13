@@ -24,6 +24,7 @@ call minpac#add('derekwyatt/vim-fswitch')
 call minpac#add('danro/rename.vim')
 call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': '!./install --all'})
 call minpac#add('junegunn/fzf.vim')
+call minpac#add('ctrlpvim/ctrlp.vim')
 
 " Go
 call minpac#add('fatih/vim-go')
@@ -48,7 +49,7 @@ call minpac#add('luochen1990/rainbow')
 call minpac#add('octol/vim-cpp-enhanced-highlight')
 
 " Completion
-call minpac#add('Valloric/YouCompleteMe', {'do': '!./install.py --clang-completer'})
+call minpac#add('Valloric/YouCompleteMe', {'do': {-> system('./install.py --clang-completer')}})
 call minpac#add('Valloric/ListToggle')
 call minpac#add('ervandew/supertab')
 
