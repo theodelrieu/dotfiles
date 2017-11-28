@@ -261,6 +261,9 @@ let g:rainbow_conf = {
                           \['start=/(/ end=/)/',
                            \'start=/\[/ end=/\]/',
                            \'start=/{/ end=/}/ fold'],
+                      \'separately': {
+                          \'cmake': 0
+                          \}
                     \}
 
 """ }}}
