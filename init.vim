@@ -46,7 +46,10 @@ call minpac#add('vim-scripts/vim-stay')                 " Open a previously clos
 call minpac#add('nanotech/jellybeans.vim')
 call minpac#add('w0ng/vim-hybrid')
 call minpac#add('luochen1990/rainbow')
+
+" Syntax
 call minpac#add('octol/vim-cpp-enhanced-highlight')
+call minpac#add('pboettch/vim-cmake-syntax')
 
 " Completion
 call minpac#add('Valloric/YouCompleteMe', {'do': {-> system('./install.py --clang-completer')}})
@@ -256,14 +259,16 @@ let g:hybrid_custom_term_colors = 1
 """ rainbow ---------------------------------------------------------------- {{{
 
 let g:rainbow_active = 1
+
+" this plugin wrecks vim-cmake-syntax
 let g:rainbow_conf = {
                       \'parentheses':
                           \['start=/(/ end=/)/',
                            \'start=/\[/ end=/\]/',
                            \'start=/{/ end=/}/ fold'],
                       \'separately': {
-                          \'cmake': 0
-                          \}
+                      \  'cmake': 0
+                      \ }
                     \}
 
 """ }}}
