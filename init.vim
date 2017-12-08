@@ -35,6 +35,9 @@ call minpac#add('pangloss/vim-javascript')
 " Kotlin
 call minpac#add('udalov/kotlin-vim')
 
+" Swift
+call minpac#add('bumaociyuan/vim-swift')
+
 " Snippets
 call minpac#add('SirVer/ultisnips')
 
