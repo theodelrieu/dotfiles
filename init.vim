@@ -214,10 +214,6 @@ nnoremap <Space> za
 " TComment
 map <Leader>c <C-_><C-_>
 
-" clang-format
-
-noremap <leader>x :pyf ~/.config/nvim/clang-format.py<CR>
-
 " }}}
 
 " Plugin configuration ----------------------------------------------------- {{{
