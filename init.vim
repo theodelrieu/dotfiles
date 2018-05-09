@@ -51,6 +51,7 @@ call minpac#add('vim-scripts/vim-stay')                 " Open a previously clos
 " Colors
 call minpac#add('nanotech/jellybeans.vim')
 call minpac#add('w0ng/vim-hybrid')
+call minpac#add('altercation/vim-colors-solarized')
 call minpac#add('luochen1990/rainbow')
 
 " Syntax
@@ -90,6 +91,7 @@ set showbreak=↪             " Show line wrapping character
 
 set background=dark
 set mps+=<:>
+
 colorscheme jellybeans
 
 """ }}}
