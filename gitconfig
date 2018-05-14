@@ -1,0 +1,11 @@
+[user]
+	email = delrieutheo@gmail.com
+	name = Théo DELRIEU
+  signingkey = 636324642CCE3C96
+[alias]
+	l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative
+	la = !git l --all && exit
+	st = status -sb
+	purge = "!git checkout master && git pull && git branch --merged | grep -v '\\*\\|master|' | xargs -n 1 git branch -d"
+[fetch]
+	prune = true
