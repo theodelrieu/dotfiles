@@ -4,6 +4,9 @@ export PATH=$HOME/.npm-packages/bin:$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bi
 
 export CONAN_CMAKE_GENERATOR=Ninja
 
+# Because why would you want useful info by default?
+export CTEST_OUTPUT_ON_FAILURE=1
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
