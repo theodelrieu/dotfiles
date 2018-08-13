@@ -88,6 +88,7 @@ set number
 set relativenumber
 set scrolloff=999           " Keep the cursor centered
 set showbreak=↪             " Show line wrapping character
+set mouse=a
 
 set background=dark
 set mps+=<:>
@@ -364,7 +365,7 @@ nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>f :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>e :YcmCompleter GoToInclude<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
-nnoremap <leader>i :YcmCompleter FixIt<CR>
+nnoremap <leader>i :YcmCompleter FixIt<CR> <CR>:cclose<CR>
 
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
