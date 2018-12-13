@@ -23,7 +23,6 @@ call minpac#add('Konfekt/FastFold')
 call minpac#add('derekwyatt/vim-fswitch')
 call minpac#add('danro/rename.vim')
 call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': '!./install --all'})
-call minpac#add('junegunn/fzf.vim')
 call minpac#add('ctrlpvim/ctrlp.vim')
 
 " Go
@@ -56,7 +55,7 @@ call minpac#add('luochen1990/rainbow')
 
 " Syntax
 call minpac#add('octol/vim-cpp-enhanced-highlight')
-call minpac#add('pboettch/vim-cmake-syntax')
+call minpac#add('sheerun/vim-polyglot')
 
 " Completion
 call minpac#add('Valloric/YouCompleteMe', {'do': {-> system('./install.py --clang-completer')}})
@@ -334,7 +333,7 @@ let g:go_fmt_experimental = 1
 
 """ vim-fswitch --------------------------------------------- {{{
 
-let g:fsnonewfiles = 1
+let g:fsnonewfiles = "on" 
 augroup my_fswitch_au_group
     au!
     au BufEnter *.h   let b:fswitchlocs = 'reg:|include/[^/]\+|src|,reg:/include/src/,ifrel:|/include/|../src|'
@@ -356,6 +355,10 @@ command A FSHere
 
 """ vim-javascript --------------------------------------------- {{{
 let g:javascript_plugin_flow = 1
+""" }}}
+
+""" vim-polyglot --------------------------------------------- {{{
+let g:polyglot_disabled = ['c', 'cpp']
 """ }}}
 
 

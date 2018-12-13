@@ -36,9 +36,9 @@ endsnippet
 snippet beginend "$1.begin(), $1.end() (beginend)" [i]
 ${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
 endsnippet
-# boost::optional
-snippet opt "boost::optional" [i]
-boost::optional<${1:T}> ${2}
+# nonstd::optional
+snippet opt "nonstd::optional" [i]
+nonstd::optional<${1:T}> ${2}
 endsnippet
 # std::forward
 snippet fwd "std::forward" [i]
@@ -128,6 +128,10 @@ endsnippet
 snippet eitv "std::enable_if_t<::value>" [i]
 std::enable_if_t<${1}::value> ${2}
 endsnippet
+
+snippet dec "std::declval<>()" [i]
+std::declval<${1:T}>() ${2}
+endsnippet
 ##
 ## Access Modifiers
 # private
@@ -167,12 +171,12 @@ endsnippet
 
 # equality operators
 snippet opequ "operator==/!=" [b]
-bool operator==(${1} const& lhs, $1 const& rhs) noexcept
+bool operator==(${1} const& lhs, $1 const& rhs)
 {
 	return std::tie(${2}) == std::tie(${2/lhs/rhs/g});
 }
 
-bool operator!=($1 const& lhs, $1 const& rhs) noexcept
+bool operator!=($1 const& lhs, $1 const& rhs)
 {
 	return !(lhs == rhs);
 }
