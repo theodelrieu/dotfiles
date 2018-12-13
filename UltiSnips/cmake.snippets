@@ -1,0 +1,27 @@
+### [b] = must be the first word on line
+### [i] = expand snippet regardless of preceding characters
+
+snippet main "default CMakeLists.txt" [b]
+cmake_minimum_required(VERSION ${1:3.3})
+project(${2:example})
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_${3:executable}(${4:$2} ${5: })
+target_link_libraries($4 ${6: })
+endsnippet
+
+snippet conan "Conanized CMakeLists.txt" [b]
+cmake_minimum_required(VERSION ${1:3.3})
+project(${2:example})
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup(TARGETS)
+
+add_${3:executable}(${4:$2} ${5: })
+target_link_libraries($4 ${6: })
+endsnippet
