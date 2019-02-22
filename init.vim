@@ -40,6 +40,9 @@ call minpac#add('bumaociyuan/vim-swift')
 " Snippets
 call minpac#add('SirVer/ultisnips')
 
+" Markdown
+call minpac#add('dhruvasagar/vim-table-mode')
+
 " tpope
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-surround')

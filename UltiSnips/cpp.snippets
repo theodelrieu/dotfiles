@@ -125,6 +125,7 @@ snippet pqueue "std::priority_queue" [i]
 std::priority_queue<${1:T}> ${2}
 endsnippet
 
+## Meta
 snippet eit "std::enable_if_t<>" [i]
 std::enable_if_t<${1}> ${2}
 endsnippet
@@ -135,6 +136,10 @@ endsnippet
 
 snippet dec "std::declval<>()" [i]
 std::declval<${1:T}>() ${2}
+endsnippet
+
+snippet stac "static auto constexpr const" [i]
+static constexpr auto const ${1:value} = ${2};
 endsnippet
 ##
 ## Access Modifiers
@@ -194,9 +199,17 @@ ${2}
 }
 endsnippet
 
+# inline namespace
+snippet ins "inline namespace" [b]
+inline namespace ${1}
+{
+${2}
+}
+endsnippet
+
 # using namespace
 snippet uns "using namespace" [b]
-using namespace ${1};
+using namespace ${1:std::string_literals};
 endsnippet
 
 ##
