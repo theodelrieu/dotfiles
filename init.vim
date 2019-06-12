@@ -24,6 +24,7 @@ call minpac#add('derekwyatt/vim-fswitch')
 call minpac#add('danro/rename.vim')
 call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': '!./install --all'})
 call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('ciaranm/securemodelines')
 
 " Go
 call minpac#add('fatih/vim-go')
