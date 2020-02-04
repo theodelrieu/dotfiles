@@ -25,6 +25,7 @@ call minpac#add('danro/rename.vim')
 call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': '!./install --all'})
 call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('ciaranm/securemodelines')
+call minpac#add('rhysd/vim-clang-format')
 
 " Go
 call minpac#add('fatih/vim-go')
@@ -46,6 +47,7 @@ call minpac#add('dhruvasagar/vim-table-mode')
 
 " tpope
 call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-surround')
 
 " vim-scripts
@@ -55,7 +57,6 @@ call minpac#add('vim-scripts/vim-stay')                 " Open a previously clos
 call minpac#add('nanotech/jellybeans.vim')
 call minpac#add('w0ng/vim-hybrid')
 call minpac#add('altercation/vim-colors-solarized')
-call minpac#add('luochen1990/rainbow')
 
 " Syntax
 call minpac#add('octol/vim-cpp-enhanced-highlight')
@@ -227,13 +228,6 @@ map <Leader>c <C-_><C-_>
 
 " Plugin configuration ----------------------------------------------------- {{{
 
-""" ConqueGdb -------------------------------------------------------------- {{{
-
-" avoid conflict with mapleader
-let g:ConqueGdb_Leader = '\'
-
-""" }}}
-
 """ Ctrl-P ----------------------------------------------------------------- {{{
 
 let g:ctrlp_working_path_mode = 'ra'
@@ -264,25 +258,7 @@ let g:hybrid_custom_term_colors = 1
 
 """ }}}
 
-""" rainbow ---------------------------------------------------------------- {{{
-
-let g:rainbow_active = 1
-
-" this plugin wrecks vim-cmake-syntax
-let g:rainbow_conf = {
-                      \'parentheses':
-                          \['start=/(/ end=/)/',
-                           \'start=/\[/ end=/\]/',
-                           \'start=/{/ end=/}/ fold'],
-                      \'separately': {
-                      \  'cmake': 0
-                      \ }
-                    \}
-
-""" }}}
-
 """ SuperTab --------------------------------------------------------------- {{{
-
 let g:SuperTabDefaultCompletionType = '<C-j>'
 let g:SuperTabMappingForward = '<C-j>'
 let g:SuperTabMappingBackward = '<C-k>'
@@ -365,6 +341,11 @@ let g:javascript_plugin_flow = 1
 let g:polyglot_disabled = ['c', 'cpp']
 """ }}}
 
+""" vim-clang-format --------------------------------------------- {{{
+let g:clang_format#detect_style_file = 1
+let g:clang_format#auto_format = 1
+""" }}}
+
 
 """ YouCompleteMe ---------------------------------------------------------- {{{
 
@@ -372,7 +353,7 @@ nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>f :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>e :YcmCompleter GoToInclude<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
-nnoremap <leader>i :YcmCompleter FixIt<CR> <CR>:cclose<CR>
+nnoremap <leader>i :YcmCompleter FixIt<CR>
 
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']

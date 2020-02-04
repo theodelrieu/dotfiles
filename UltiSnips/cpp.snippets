@@ -41,8 +41,11 @@ snippet beginend "$1.begin(), $1.end() (beginend)" [i]
 ${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
 endsnippet
 # nonstd::optional
-snippet opt "nonstd::optional" [i]
-nonstd::optional<${1:T}> ${2}
+snippet opt "std::optional" [i]
+std::optional<${1:T}> ${2}
+endsnippet
+snippet mov "std::move" [i]
+std::move(${1})
 endsnippet
 # std::forward
 snippet fwd "std::forward" [i]
@@ -131,6 +134,14 @@ endsnippet
 # std::uint8_t const
 snippet u8c "std::uint8_t const" [i]
 std::uint8_t const
+endsnippet
+# std::uint64_t
+snippet u64 "std::uint64_t" [i]
+std::uint64_t
+endsnippet
+# std::uint64_t const
+snippet u64c "std::uint64_t const" [i]
+std::uint64_t const
 endsnippet
 
 ## Meta
