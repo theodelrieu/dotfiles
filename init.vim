@@ -7,7 +7,7 @@
 filetype plugin indent on
 syntax on
 
-set packpath^=~/.nvim
+set packpath^=~/.config/nvim
 packadd minpac
 
 set runtimepath+=~/.fzf
@@ -307,8 +307,12 @@ let g:cpp_concepts_highlight = 1
 
 """ vim-go --------------------------------------------- {{{
 
-let g:go_fmt_command = "goimports"
-let g:go_fmt_experimental = 1
+let g:go_imports_mode='gopls'
+let g:go_imports_autosave=1
+let g:go_fmt_autosave = 1
+let g:go_fmt_options = {
+  \ 'gofmt': '-s',
+  \ }
 
 """ }}}
 
@@ -360,6 +364,9 @@ let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_always_populate_location_list = 1
 let g:ycm_extra_conf_globlist = ['~/*']
+
+let g:ycm_filetype_blacklist = { 'go': 1 }
+
 " basic config
 let g:ycm_global_ycm_extra_conf = '${HOME}/.config/nvim/.ycm_extra_conf.py'
 
