@@ -7,7 +7,7 @@
 filetype plugin indent on
 syntax on
 
-set packpath^=~/.config/nvim
+set packpath^=~/.config/nvim/pack/minpac/start
 packadd minpac
 
 set runtimepath+=~/.fzf
@@ -60,7 +60,6 @@ call minpac#add('altercation/vim-colors-solarized')
 
 " Syntax
 call minpac#add('octol/vim-cpp-enhanced-highlight')
-call minpac#add('sheerun/vim-polyglot')
 
 " Completion
 call minpac#add('Valloric/YouCompleteMe', {'do': {-> system('./install.py --clang-completer')}})
@@ -340,10 +339,6 @@ command A FSHere
 
 """ vim-javascript --------------------------------------------- {{{
 let g:javascript_plugin_flow = 1
-""" }}}
-
-""" vim-polyglot --------------------------------------------- {{{
-let g:polyglot_disabled = ['c', 'cpp']
 """ }}}
 
 """ vim-clang-format --------------------------------------------- {{{
