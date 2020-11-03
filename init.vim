@@ -4,10 +4,15 @@
 
 " Plugins ------------------------------------------------------------------ {{{
 
+let g:polyglot_disabled = ['c', 'cpp']
+let g:polyglot_is_disabled = {}
+
 filetype plugin indent on
 syntax on
 
-set packpath^=~/.config/nvim/pack/minpac/start
+set nocompatible
+
+set packpath^=~/.vim
 packadd minpac
 
 set runtimepath+=~/.fzf
@@ -21,6 +26,7 @@ call minpac#add('airblade/vim-gitgutter')
 call minpac#add('tomtom/tcomment_vim')
 call minpac#add('Konfekt/FastFold')
 call minpac#add('derekwyatt/vim-fswitch')
+call minpac#add('sheerun/vim-polyglot')
 call minpac#add('danro/rename.vim')
 call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': '!./install --all'})
 call minpac#add('ctrlpvim/ctrlp.vim')
