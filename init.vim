@@ -5,7 +5,6 @@
 " Plugins ------------------------------------------------------------------ {{{
 
 let g:polyglot_disabled = ['c', 'cpp']
-let g:polyglot_is_disabled = {}
 
 filetype plugin indent on
 syntax on
