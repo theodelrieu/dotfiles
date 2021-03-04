@@ -11,7 +11,7 @@ syntax on
 
 set nocompatible
 
-set packpath^=~/.vim
+set packpath^=~/.config/nvim/pack/minpac/start
 packadd minpac
 
 set runtimepath+=~/.fzf
